@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="ImageRe.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImageRe"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+
+        <Button Content="Open" FontSize="10" Name="btnOpn" Height="30" Width="79" RelativePanel.AlignTopWithPanel="True" Margin="5,20,0,20" Click="OpenImageFolder"/>
+        <Button Content="Start" FontSize="10" Name="btnSat" Width="79" Height="30" RelativePanel.Below="btnOpn" Margin="5,0,0,0" Click="Button_Click"/>
+        <TextBlock Name="Tot"/>
+        <TextBlock Name="Vot" RelativePanel.Below="btnOpn"/>
+        <TextBlock Name="txttag" RelativePanel.RightOf="progrb"/>
+        <Rectangle RelativePanel.AlignBottomWithPanel ="True" Height="30" />
+        <ProgressBar Name="progrb"  Height="20" RelativePanel.AlignBottomWithPanel="True"  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="Azure" Value="20"/>
+    
+        <!--<Image Name="HorImagePlace" Canvas.ZIndex="1" Height="Auto" Width="Auto" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="btnOpn" Margin="0,10,10,0" RelativePanel.Above="progrb"></Image>
+        <Image Name="VerImagePlace" Canvas.ZIndex="1" Height="auto" Width="Auto" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.RightOf="HorImagePlace" Margin="0,10,10,0" RelativePanel.Above="progrb"></Image>-->
+        <StackPanel Orientation="Horizontal" RelativePanel.RightOf="btnOpn" RelativePanel.Above="progrb" RelativePanel.AlignRightWithPanel="True">
+            <Image Name="HorImagePlace"/>
+            <Image Name="VerImagePlace"/>
+        </StackPanel>
+    </RelativePanel>
+</Page>
+ 

@@ -1,0 +1,2 @@
+MainPackage=E:\Working\UWP\ImageRe\ImageRe\ImageRe\bin\x86\Debug\ImageRe_1.0.1.0_x86_Debug.appx
+SymbolPackage=E:\Working\UWP\ImageRe\ImageRe\ImageRe\AppPackages\ImageRe_1.0.1.0_Debug_Test\ImageRe_1.0.1.0_x86_Debug.appxsym
