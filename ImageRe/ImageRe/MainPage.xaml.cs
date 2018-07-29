@@ -38,6 +38,7 @@ namespace ImageRe
         BitmapImage horbitmap = new BitmapImage();
         BitmapImage verbitmap = new BitmapImage();
         IRandomAccessStream inputstream;
+        string filename;
         public MainPage()
         {
             this.InitializeComponent();
@@ -118,16 +119,21 @@ namespace ImageRe
             //Windows.Storage.StorageFolder imgfld = await imagefile.GetParentAsync();
             StorageApplicationPermissions.FutureAccessList.Add(imagefolder);
             IReadOnlyList<StorageFile> filelist = await imagefolder.GetFilesAsync();
-            foreach (StorageFile file in filelist)
+            foreach (StorageFile file  in filelist)
             {
                 progrb.Visibility = Visibility.Visible;
                 p = filelist.Count;
                 if (file.FileType == ".jpg" || file.FileType == ".png" || file.FileType == ".bmp")
                 {
+                    var varfil = await file.GetBasicPropertiesAsync();
+                    if (varfil.Size == 0) continue;
+                    filename = file.Name;
+                    filename = varfil.Size.ToString();
+                    errtag.Text = filename;
                     ImageProperties imageProperties = await file.Properties.GetImagePropertiesAsync();
                     if (imageProperties.Width >= imageProperties.Height)
                     {
-                        if (await hore.TryGetItemAsync(file.Name) != null) return;
+                        if (await hore.TryGetItemAsync(file.Name) != null) continue;
                         inputstream = await file.OpenReadAsync();
                         await horbitmap.SetSourceAsync(inputstream);
                         HorImagePlace.Source = horbitmap;
@@ -136,7 +142,7 @@ namespace ImageRe
                     }
                     else
                     {
-                        if (await vere.TryGetItemAsync(file.Name) != null) return;
+                        if (await vere.TryGetItemAsync(file.Name) != null) continue;
                         inputstream = await file.OpenReadAsync();
                         await verbitmap.SetSourceAsync(inputstream);
                         VerImagePlace.Visibility = Visibility.Visible;
@@ -152,8 +158,8 @@ namespace ImageRe
                 button.IsEnabled = true;
                 btnOpn.IsEnabled = true;
                 t++;
-                c = t/p;
-                progrb.Value = c*100;
+                c = t / p;
+                progrb.Value = c * 100;
             }
             StorageApplicationPermissions.FutureAccessList.Clear();
         }

@@ -12,18 +12,18 @@
 
         <Button Content="Open" FontSize="10" Name="btnOpn" Height="30" Width="79" RelativePanel.AlignTopWithPanel="True" Margin="5,20,0,20" Click="OpenImageFolder"/>
         <Button Content="Start" FontSize="10" Name="btnSat" Width="79" Height="30" RelativePanel.Below="btnOpn" Margin="5,0,0,0" Click="Button_Click"/>
-        <TextBlock Name="Tot"/>
-        <TextBlock Name="Vot" RelativePanel.Below="btnOpn"/>
+        <TextBlock Name="Tot" RelativePanel.AlignRightWith="btnOpn"/>
+        <TextBlock Name="Vot" RelativePanel.Below="btnOpn" RelativePanel.AlignRightWith="btnOpn"/>
         <TextBlock Name="txttag" RelativePanel.RightOf="progrb"/>
+        <TextBlock Name="errtag" RelativePanel.Above="progrb"/>
         <Rectangle RelativePanel.AlignBottomWithPanel ="True" Height="30" />
-        <ProgressBar Name="progrb"  Height="20" RelativePanel.AlignBottomWithPanel="True"  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="Azure" Value="20"/>
+        <ProgressBar Name="progrb"  Height="20" RelativePanel.AlignBottomWithPanel="True"  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"  Background="Azure" />
     
         <!--<Image Name="HorImagePlace" Canvas.ZIndex="1" Height="Auto" Width="Auto" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="btnOpn" Margin="0,10,10,0" RelativePanel.Above="progrb"></Image>
         <Image Name="VerImagePlace" Canvas.ZIndex="1" Height="auto" Width="Auto" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.RightOf="HorImagePlace" Margin="0,10,10,0" RelativePanel.Above="progrb"></Image>-->
-        <StackPanel Orientation="Horizontal" RelativePanel.RightOf="btnOpn" RelativePanel.Above="progrb" RelativePanel.AlignRightWithPanel="True">
-            <Image Name="HorImagePlace"/>
-            <Image Name="VerImagePlace"/>
-        </StackPanel>
+        <Image Name="VerImagePlace" Height="Auto" HorizontalAlignment="Stretch" Width="Auto"  RelativePanel.AlignRightWithPanel="True"   RelativePanel.Above="progrb" RelativePanel.AlignTopWithPanel="True"/>
+        <Image Name="HorImagePlace" RelativePanel.RightOf="btnOpn" RelativePanel.LeftOf="VerImagePlace" RelativePanel.Above="progrb" RelativePanel.AlignTopWithPanel="True"  Height="Auto" Width="Auto"/>
+       
     </RelativePanel>
 </Page>
  
